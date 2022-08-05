@@ -18,10 +18,11 @@ public class Login_Steps {
     }
 
     @When("I click in login portal")
-    public void i_click_in_login_portal(){
+    public void i_click_in_login_portal() throws InterruptedException {
         driver.findElement(By.xpath("//h1[contains(.,'LOGIN PORTAL')]")).click();
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(newTab.get(1));
+        Thread.sleep(2000);
     }
 
     @When("I enter a username {}")
