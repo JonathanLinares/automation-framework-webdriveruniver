@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import utils.Global_Vars;
 
 public class ContactUs_PageObject extends BasePage{
 
@@ -29,7 +30,7 @@ public class ContactUs_PageObject extends BasePage{
     }
 
     public void navigateTo_WebDriverUniversity_ContactUs(){
-        navigateToURL("https://webdriveruniversity.com/Contact-Us/contactus.html");
+        navigateToURL(Global_Vars.WEBDRIVER_UNIVERSITY_HOMEPAGE_URL + "/Contact-Us/contactus.html");
     }
 
     public void setUnique_FirstName(){
