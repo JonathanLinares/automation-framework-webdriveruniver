@@ -1,7 +1,6 @@
 package pageObjects;
 
 import driver.DriverFactory;
-import io.cucumber.messages.internal.com.fasterxml.jackson.databind.ser.Serializers;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -65,5 +64,15 @@ public class BasePage {
     public void swichTo_NewTab(int tab){
         ArrayList<String> newTab = new ArrayList<String>(getDriver().getWindowHandles());
         getDriver().switchTo().window(newTab.get(tab));
+    }
+
+    public void waitFor(By by){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+    }
+
+    public void waitFor(WebElement element){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

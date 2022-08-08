@@ -14,13 +14,10 @@ import static driver.DriverFactory.getDriver;
 
 
 public class Hooks {
-
     @Before
     public void setup(){
-
         getDriver();
     }
-
     @AfterStep
     public void captureExceptionImage(Scenario scenario){
         if (scenario.isFailed()){
@@ -32,11 +29,8 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", timeMillieseconds);
         }
     }
-
     @After
     public void tearDown(){
-
         cleanUpDriver();
     }
-
 }
